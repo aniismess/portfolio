@@ -117,3 +117,62 @@ let trans = () => {
     document.documentElement.classList.remove("transition");
   }, 1200);
 };
+
+// Modal
+const modal = document.getElementById("project-modal");
+const closeButton = document.querySelector(".close-button");
+const projectBoxes = document.querySelectorAll(".project-box");
+
+projectBoxes.forEach((box) => {
+  box.addEventListener("click", () => {
+    const title = box.dataset.title;
+    const image = box.dataset.image;
+    const description = box.dataset.description;
+    const techStack = box.dataset.techStack;
+    const githubLink = box.dataset.githubLink;
+    const websiteLink = box.dataset.websiteLink;
+
+    document.getElementById("modal-title").textContent = title;
+    document.getElementById("modal-image").src = image;
+    document.getElementById("modal-description").textContent = description;
+
+    const techStackContainer = document.getElementById("modal-tech-stack");
+    techStackContainer.innerHTML = "";
+    if (techStack) {
+      techStack.split(",").forEach((tech) => {
+        const icon = document.createElement("ion-icon");
+        icon.name = tech.trim();
+        icon.classList.add("tech-icon");
+        techStackContainer.appendChild(icon);
+      });
+    }
+
+    const githubLinkEl = document.getElementById("modal-github-link");
+    if (githubLink) {
+      githubLinkEl.href = githubLink;
+      githubLinkEl.style.display = "inline-block";
+    } else {
+      githubLinkEl.style.display = "none";
+    }
+
+    const websiteLinkEl = document.getElementById("modal-website-link");
+    if (websiteLink) {
+      websiteLinkEl.href = websiteLink;
+      websiteLinkEl.style.display = "inline-block";
+    } else {
+      websiteLinkEl.style.display = "none";
+    }
+
+    modal.style.display = "block";
+  });
+});
+
+closeButton.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+window.addEventListener("click", (event) => {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+});

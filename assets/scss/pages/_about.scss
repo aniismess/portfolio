@@ -1,11 +1,16 @@
 .about {
   margin-top: 13rem;
-  padding: 2rem 6rem;
+  padding: 6rem;
   position: relative;
+  background-color: var(--darkBlue);
+  border-radius: 10px;
+
   .container {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 4rem;
+
     .about-heading {
       text-align: center;
       text-transform: uppercase;
@@ -16,30 +21,27 @@
         opacity: 1;
       }
     }
+
     .profile-img {
-      flex: 1;
-      margin-right: 2.5rem;
-      z-index: 100;
-      position: relative;
+      flex-basis: 40%;
       img {
-        width: 510px;
+        width: 100%;
         height: auto;
         object-fit: cover;
-        filter: grayscale(100%);
+        border-radius: 10px;
         transition: 0.3s;
         &:hover {
-          filter: none;
           transform: scale(1.05);
         }
       }
     }
+
     .about-content {
-      flex: 1;
-      font-size: 1rem;
-      line-height: 2;
+      flex-basis: 60%;
+      font-size: 1.1rem;
+      line-height: 1.8;
 
       p {
-        margin-top: 5rem;
         font-weight: 300;
         text-align: left;
         color: var(--white);
@@ -51,6 +53,7 @@
     }
   }
 }
+
 .about-cta {
   text-align: center;
   margin: 2rem 0;

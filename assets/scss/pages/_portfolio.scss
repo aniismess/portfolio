@@ -50,12 +50,7 @@
     }
 
     &:hover .project-image {
-      opacity: 1;
-      transform: scale(1.1);
-    }
-
-    &:hover .project-box__content {
-      opacity: 0;
+      opacity: 0.7;
     }
   }
 
