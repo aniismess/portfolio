@@ -189,3 +189,12 @@
     font-size: 0.67rem !important;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .project {
+    padding: 4rem 2rem;
+  }
+  .project-item-container {
+    grid-template-columns: 1fr;
+  }
+}
